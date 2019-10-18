@@ -1,0 +1,12 @@
+C:\Users\alumnos\Desktop\GIT\FinanzasTF\Backend\Factura.Repository\bin\Debug\netstandard2.0\Factura.Repository.deps.json
+C:\Users\alumnos\Desktop\GIT\FinanzasTF\Backend\Factura.Repository\bin\Debug\netstandard2.0\Factura.Repository.dll
+C:\Users\alumnos\Desktop\GIT\FinanzasTF\Backend\Factura.Repository\bin\Debug\netstandard2.0\Factura.Repository.pdb
+C:\Users\alumnos\Desktop\GIT\FinanzasTF\Backend\Factura.Repository\bin\Debug\netstandard2.0\Factura.Domain.dll
+C:\Users\alumnos\Desktop\GIT\FinanzasTF\Backend\Factura.Repository\bin\Debug\netstandard2.0\Factura.Domain.pdb
+C:\Users\alumnos\Desktop\GIT\FinanzasTF\Backend\Factura.Repository\obj\Debug\netstandard2.0\Factura.Repository.csprojAssemblyReference.cache
+C:\Users\alumnos\Desktop\GIT\FinanzasTF\Backend\Factura.Repository\obj\Debug\netstandard2.0\Factura.Repository.csproj.CoreCompileInputs.cache
+C:\Users\alumnos\Desktop\GIT\FinanzasTF\Backend\Factura.Repository\obj\Debug\netstandard2.0\Factura.Repository.AssemblyInfoInputs.cache
+C:\Users\alumnos\Desktop\GIT\FinanzasTF\Backend\Factura.Repository\obj\Debug\netstandard2.0\Factura.Repository.AssemblyInfo.cs
+C:\Users\alumnos\Desktop\GIT\FinanzasTF\Backend\Factura.Repository\obj\Debug\netstandard2.0\Factura.Repository.csproj.CopyComplete
+C:\Users\alumnos\Desktop\GIT\FinanzasTF\Backend\Factura.Repository\obj\Debug\netstandard2.0\Factura.Repository.dll
+C:\Users\alumnos\Desktop\GIT\FinanzasTF\Backend\Factura.Repository\obj\Debug\netstandard2.0\Factura.Repository.pdb
