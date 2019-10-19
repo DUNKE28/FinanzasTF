@@ -8,46 +8,46 @@ namespace Factura.Service.Implementation
 {
     public class UsuarioService : IUsuarioService
     {
-        private IUsuarioRepository userRepository;
+        private IUsuarioRepository usuarioRepository;
 
-        public UsuarioService(IUsuarioRepository userRepository)
+        public UsuarioService(IUsuarioRepository usuarioRepository)
         {
-            this.userRepository = userRepository;
+            this.usuarioRepository = usuarioRepository;
         }
 
         public bool DeleteById(int id)
         {
-            throw new NotImplementedException();
+            return usuarioRepository.DeleteById(id);
         }
 
         public IEnumerable<Usuario> GetAll()
         {
-            throw new NotImplementedException();
+            return usuarioRepository.GetAll();
         }
 
         public Usuario GetById(int id)
         {
-            throw new NotImplementedException();
+            return usuarioRepository.GetById(id);
         }
 
         public Usuario GetByRUC(long RUC)
         {
-            throw new NotImplementedException();
+            return usuarioRepository.GetByRUC(RUC);
         }
 
         public Usuario Login(string email, string contraseña)
         {
-            throw new NotImplementedException();
+            return usuarioRepository.Login(email, contraseña);
         }
 
         public bool Save(Usuario entity)
         {
-            throw new NotImplementedException();
+            return usuarioRepository.Save(entity);
         }
 
         public bool Update(Usuario entity)
         {
-            throw new NotImplementedException();
+            return usuarioRepository.Update(entity);
         }
     }
 }
