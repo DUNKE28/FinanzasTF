@@ -38,6 +38,9 @@ namespace Factura.Api
             services.AddTransient<IUsuarioRepository, UsuarioRepository>();
             services.AddTransient<IUsuarioService, UsuarioService>();
 
+            services.AddTransient<IFacturaRepository, FacturaRepository>();
+            services.AddTransient<IFacturaService, FacturaService>();
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         
             services.AddSwaggerGen(swagger =>

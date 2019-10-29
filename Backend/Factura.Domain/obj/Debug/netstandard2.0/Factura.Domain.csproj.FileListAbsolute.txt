@@ -22,3 +22,9 @@ C:\Users\0l0\Desktop\Finanzas\FinanzasTF\Backend\Factura.Domain\obj\Debug\netsta
 C:\Users\0l0\Desktop\Finanzas\FinanzasTF\Backend\Factura.Domain\obj\Debug\netstandard2.0\Factura.Domain.csproj.CopyComplete
 C:\Users\0l0\Desktop\Finanzas\FinanzasTF\Backend\Factura.Domain\obj\Debug\netstandard2.0\Factura.Domain.dll
 C:\Users\0l0\Desktop\Finanzas\FinanzasTF\Backend\Factura.Domain\obj\Debug\netstandard2.0\Factura.Domain.pdb
+C:\Users\PC\Desktop\GIT\FinanzasTF\Backend\Factura.Domain\obj\Debug\netstandard2.0\Factura.Domain.csprojAssemblyReference.cache
+C:\Users\PC\Desktop\GIT\FinanzasTF\Backend\Factura.Domain\obj\Debug\netstandard2.0\Factura.Domain.csproj.CoreCompileInputs.cache
+C:\Users\PC\Desktop\GIT\FinanzasTF\Backend\Factura.Domain\obj\Debug\netstandard2.0\Factura.Domain.AssemblyInfoInputs.cache
+C:\Users\PC\Desktop\GIT\FinanzasTF\Backend\Factura.Domain\obj\Debug\netstandard2.0\Factura.Domain.AssemblyInfo.cs
+C:\Users\PC\Desktop\GIT\FinanzasTF\Backend\Factura.Domain\obj\Debug\netstandard2.0\Factura.Domain.dll
+C:\Users\PC\Desktop\GIT\FinanzasTF\Backend\Factura.Domain\obj\Debug\netstandard2.0\Factura.Domain.pdb

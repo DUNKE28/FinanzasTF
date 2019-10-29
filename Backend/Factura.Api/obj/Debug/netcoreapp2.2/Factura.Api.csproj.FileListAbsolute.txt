@@ -19,3 +19,5 @@ C:\Users\0l0\Desktop\Finanzas\FinanzasTF\Backend\Factura.Api\obj\Debug\netcoreap
 C:\Users\0l0\Desktop\Finanzas\FinanzasTF\Backend\Factura.Api\obj\Debug\netcoreapp2.2\Factura.Api.csproj.CopyComplete
 C:\Users\0l0\Desktop\Finanzas\FinanzasTF\Backend\Factura.Api\obj\Debug\netcoreapp2.2\Factura.Api.dll
 C:\Users\0l0\Desktop\Finanzas\FinanzasTF\Backend\Factura.Api\obj\Debug\netcoreapp2.2\Factura.Api.pdb
+C:\Users\PC\Desktop\GIT\FinanzasTF\Backend\Factura.Api\obj\Debug\netcoreapp2.2\Factura.Api.dll
+C:\Users\PC\Desktop\GIT\FinanzasTF\Backend\Factura.Api\obj\Debug\netcoreapp2.2\Factura.Api.pdb
