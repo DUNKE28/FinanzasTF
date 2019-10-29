@@ -14,7 +14,6 @@ namespace Factura.Domain
         public string RazonSocial { get; set; }
         [DisplayName("Numero de RUC")]
         [Required(ErrorMessage="Introduzca su RUC")]
-        [MaxLength(11)]
         public long RUC { get; set; }
         [DisplayName("Correo electronico")]
         [Required(ErrorMessage="Introduzca su correo")]
@@ -22,6 +21,5 @@ namespace Factura.Domain
         [DisplayName("Contraseña")]
         [Required(ErrorMessage="Introduzca su contraseña")]
         public string Contraseña { get; set; }
-        public IEnumerable<Cartera> Carteras { get; set; }
     }
 }
