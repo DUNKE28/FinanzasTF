@@ -9,7 +9,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Factura.Repository.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20191029175038_init")]
+    [Migration("20191029195726_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -19,6 +19,24 @@ namespace Factura.Repository.Migrations
                 .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn)
                 .HasAnnotation("ProductVersion", "2.2.4-servicing-10062")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
+
+            modelBuilder.Entity("Factura.Domain.Costo", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Motivo");
+
+                    b.Property<string>("PorcEfect");
+
+                    b.Property<string>("Tipo");
+
+                    b.Property<double>("Valor");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Costos");
+                });
 
             modelBuilder.Entity("Factura.Domain.Usuario", b =>
                 {
@@ -31,8 +49,7 @@ namespace Factura.Repository.Migrations
                     b.Property<string>("Email")
                         .IsRequired();
 
-                    b.Property<long>("RUC")
-                        .HasMaxLength(11);
+                    b.Property<long>("RUC");
 
                     b.Property<string>("RazonSocial")
                         .IsRequired();

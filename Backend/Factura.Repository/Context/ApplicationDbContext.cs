@@ -10,6 +10,7 @@ namespace Factura.Repository.Context
     {
         public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<Factura> Facturas { get; set; }
+        public DbSet<Costo> Costos { get; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)

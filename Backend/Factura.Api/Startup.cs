@@ -40,6 +40,9 @@ namespace Factura.Api
 
             services.AddTransient<IFacturaRepository, FacturaRepository>();
             services.AddTransient<IFacturaService, FacturaService>();
+            
+            services.AddTransient<ICostoRepository, CostoRepository>();
+            services.AddTransient<ICostoService, CostoService>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         
