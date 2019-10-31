@@ -9,7 +9,7 @@ namespace Factura.Domain
         public double Valor {get; set;}
         public string Tipo {get; set;}
         public string PorcEfect {get; set;}
-        //public int FacturaId {get; set;}
-        //public Factura Factura {get; set;}
+        public int FacturaId {get; set;}
+        public Factu Factura {get; set;}
     }
 }

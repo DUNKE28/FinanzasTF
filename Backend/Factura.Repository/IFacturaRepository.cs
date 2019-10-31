@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Factura.Repository
 {
-    public interface IFacturaRepository:IRepository<Factura>
+    public interface IFacturaRepository:IRepository<Factu>
     {
         
     }

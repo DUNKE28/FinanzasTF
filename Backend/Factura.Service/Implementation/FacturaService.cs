@@ -20,22 +20,22 @@ namespace Factura.Service.Implementation
             return facturaRepository.DeleteById(id);
         }
 
-        public IEnumerable<Factura> GetAll()
+        public IEnumerable<Factu> GetAll()
         {
             return facturaRepository.GetAll();
         }
 
-        public Factura GetById(int id)
+        public Factu GetById(int id)
         {
             return facturaRepository.GetById(id);
         }
 
-        public bool Save(Factura entity)
+        public bool Save(Factu entity)
         {
             return facturaRepository.Save(entity);
         }
 
-        public bool Update(Factura entity)
+        public bool Update(Factu entity)
         {
             return facturaRepository.Update(entity);
         }

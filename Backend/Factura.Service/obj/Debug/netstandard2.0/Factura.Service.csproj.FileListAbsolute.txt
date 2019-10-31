@@ -1,3 +1,5 @@
+C:\Users\PC\Desktop\GIT\FinanzasTF\Backend\Factura.Service\obj\Debug\netstandard2.0\Factura.Service.dll
+C:\Users\PC\Desktop\GIT\FinanzasTF\Backend\Factura.Service\obj\Debug\netstandard2.0\Factura.Service.pdb
 C:\Users\0l0\Desktop\Finanzas\FinanzasTF\Backend\Factura.Service\bin\Debug\netstandard2.0\Factura.Service.deps.json
 C:\Users\0l0\Desktop\Finanzas\FinanzasTF\Backend\Factura.Service\bin\Debug\netstandard2.0\Factura.Service.dll
 C:\Users\0l0\Desktop\Finanzas\FinanzasTF\Backend\Factura.Service\bin\Debug\netstandard2.0\Factura.Service.pdb
@@ -12,5 +14,3 @@ C:\Users\0l0\Desktop\Finanzas\FinanzasTF\Backend\Factura.Service\obj\Debug\netst
 C:\Users\0l0\Desktop\Finanzas\FinanzasTF\Backend\Factura.Service\obj\Debug\netstandard2.0\Factura.Service.csproj.CopyComplete
 C:\Users\0l0\Desktop\Finanzas\FinanzasTF\Backend\Factura.Service\obj\Debug\netstandard2.0\Factura.Service.dll
 C:\Users\0l0\Desktop\Finanzas\FinanzasTF\Backend\Factura.Service\obj\Debug\netstandard2.0\Factura.Service.pdb
-C:\Users\PC\Desktop\GIT\FinanzasTF\Backend\Factura.Service\obj\Debug\netstandard2.0\Factura.Service.dll
-C:\Users\PC\Desktop\GIT\FinanzasTF\Backend\Factura.Service\obj\Debug\netstandard2.0\Factura.Service.pdb

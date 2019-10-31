@@ -5,7 +5,7 @@ using Factura.Domain;
 
 namespace Factura.Service
 {
-    public interface IFacturaService : IService<Factura>
+    public interface IFacturaService : IService<Factu>
     {
          
     }

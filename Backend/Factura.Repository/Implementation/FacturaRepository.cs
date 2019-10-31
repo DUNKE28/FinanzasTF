@@ -21,7 +21,7 @@ namespace Factura.Repository.Implementation
         {
             try
             {
-                Factura factura = GetById(id);
+                Factu factura = GetById(id);
                 context.Facturas.Remove(factura);
                 context.SaveChanges();
             }
@@ -32,9 +32,9 @@ namespace Factura.Repository.Implementation
             return true;
         }
 
-        public IEnumerable<Factura> GetAll()
+        public IEnumerable<Factu> GetAll()
         {
-            var result = new List<Factura>();
+            var result = new List<Factu>();
             try
             {
                 result = context.Facturas
@@ -49,9 +49,9 @@ namespace Factura.Repository.Implementation
             return result;
         }
 
-        public Factura GetById(int id)
+        public Factu GetById(int id)
         {
-            var result = new Factura();
+            var result = new Factu();
             try
             {
                 result = context.Facturas
@@ -66,20 +66,20 @@ namespace Factura.Repository.Implementation
             return result;
         }
 
-        public bool Save(Factura entity)
+        public bool Save(Factu entity)
         {
             try
             { 
-                entity.DiasTranscurridos = entity.FechaPago - entity.FechaDescuento;
+                entity.DiasTranscurridos = (entity.FechaPago - entity.FechaDescuento).Days;
                 if (entity.IsNominal){
                     entity.m = entity.PlazoDeTasa / entity.PeriodoCapital;
                     entity.n = entity.DiasPorAño / entity.PeriodoCapital;
-                    entity.TEA = pow(1+(entity.TasaNominal/entity.m),entity.n) - 1;
-                    entity.TEPeriodo = pow(1+(entity.TasaNominal/entity.m),entity.DiasTranscurridos/entity.PeriodoCapital) - 1;
+                    entity.TEA = Math.Pow(1+(entity.TasaNominal/entity.m),entity.n) - 1;
+                    entity.TEPeriodo = Math.Pow(1+(entity.TasaNominal/entity.m),entity.DiasTranscurridos/entity.PeriodoCapital) - 1;
                 }
                 else {
-                    entity.TEA = pow(1+entity.TasaEfectiva,entity.DiasPorAño/entity.PlazoDeTasa) - 1;
-                    entity.TEPeriodo = pow(1+entity.TasaEfectiva,entity.DiasTranscurridos/entity.PlazoDeTasa) - 1;
+                    entity.TEA = Math.Pow(1+entity.TasaEfectiva,entity.DiasPorAño/entity.PlazoDeTasa) - 1;
+                    entity.TEPeriodo = Math.Pow(1+entity.TasaEfectiva,entity.DiasTranscurridos/entity.PlazoDeTasa) - 1;
                 }
                 entity.dPeriodo = entity.TEPeriodo/(1+entity.TEPeriodo);
                 entity.DescuentoPeriodo = entity.TotalFacturado*entity.dPeriodo;
@@ -88,7 +88,7 @@ namespace Factura.Repository.Implementation
                 entity.ValorRecibido = entity.ValorNeto-entity.CostesIniciales;
                 entity.CostesFinales = 0;
                 entity.ValorEntregado = entity.TotalFacturado + entity.CostesFinales;
-                entity.TCEA = pow(entity.ValorEntregado/entity.ValorRecibido,entity.DiasPorAño/entity.PlazoDeTasa) - 1;
+                entity.TCEA = Math.Pow(entity.ValorEntregado/entity.ValorRecibido,entity.DiasPorAño/entity.PlazoDeTasa) - 1;
 
                 context.Add(entity);
                 context.SaveChanges();
@@ -100,7 +100,7 @@ namespace Factura.Repository.Implementation
             return true;
         }
 
-        public bool Update(Factura entity)
+        public bool Update(Factu entity)
         {
             try
             {
@@ -120,16 +120,16 @@ namespace Factura.Repository.Implementation
                 originalUser.PeriodoCapital = entity.PeriodoCapital;
                 originalUser.FechaDescuento = entity.FechaDescuento;
                 
-                originalUser.DiasTranscurridos = originalUser.FechaPago - originalUser.FechaDescuento;
+                originalUser.DiasTranscurridos = (originalUser.FechaPago - originalUser.FechaDescuento).Days;
                 if (originalUser.IsNominal){
                     originalUser.m = originalUser.PlazoDeTasa / originalUser.PeriodoCapital;
                     originalUser.n = originalUser.DiasPorAño / originalUser.PeriodoCapital;
-                    originalUser.TEA = pow(1+(originalUser.TasaNominal/originalUser.m),originalUser.n) - 1;
-                    originalUser.TEPeriodo = pow(1+(originalUser.TasaNominal/originalUser.m),originalUser.DiasTranscurridos/originalUser.PeriodoCapital) - 1;
+                    originalUser.TEA = Math.Pow(1+(originalUser.TasaNominal/originalUser.m),originalUser.n) - 1;
+                    originalUser.TEPeriodo = Math.Pow(1+(originalUser.TasaNominal/originalUser.m),originalUser.DiasTranscurridos/originalUser.PeriodoCapital) - 1;
                 }
                 else {
-                    originalUser.TEA = pow(1+originalUser.TasaEfectiva,originalUser.DiasPorAño/originalUser.PlazoDeTasa) - 1;
-                    originalUser.TEPeriodo = pow(1+originalUser.TasaEfectiva,originalUser.DiasTranscurridos/originalUser.PlazoDeTasa) - 1;
+                    originalUser.TEA = Math.Pow(1+originalUser.TasaEfectiva,originalUser.DiasPorAño/originalUser.PlazoDeTasa) - 1;
+                    originalUser.TEPeriodo = Math.Pow(1+originalUser.TasaEfectiva,originalUser.DiasTranscurridos/originalUser.PlazoDeTasa) - 1;
                 }
                 originalUser.dPeriodo = originalUser.TEPeriodo/(1+originalUser.TEPeriodo);
                 originalUser.DescuentoPeriodo = originalUser.TotalFacturado*originalUser.dPeriodo;
@@ -138,11 +138,11 @@ namespace Factura.Repository.Implementation
                 originalUser.ValorRecibido = originalUser.ValorNeto-originalUser.CostesIniciales;
                 originalUser.CostesFinales = 0;
                 originalUser.ValorEntregado = originalUser.TotalFacturado + originalUser.CostesFinales;
-                originalUser.TCEA = pow(originalUser.ValorEntregado/originalUser.ValorRecibido,originalUser.DiasPorAño/originalUser.PlazoDeTasa) - 1;
+                originalUser.TCEA = Math.Pow(originalUser.ValorEntregado/originalUser.ValorRecibido,originalUser.DiasPorAño/originalUser.PlazoDeTasa) - 1;
 
                 originalUser.UsuarioId = entity.UsuarioId;
 
-                context.Usuarios.Update(originalUser);
+                context.Facturas.Update(originalUser);
                 context.SaveChanges();
 
             }

@@ -21,6 +21,6 @@ namespace Factura.Domain
         [DisplayName("Contraseña")]
         [Required(ErrorMessage="Introduzca su contraseña")]
         public string Contraseña { get; set; }
-        public IEnumerable<Factura> Facturas { get; set; }
+        public IEnumerable<Factu> Facturas { get; set; }
     }
 }

@@ -1,3 +1,5 @@
+C:\Users\PC\Desktop\GIT\FinanzasTF\Backend\Factura.Api\obj\Debug\netcoreapp2.2\Factura.Api.dll
+C:\Users\PC\Desktop\GIT\FinanzasTF\Backend\Factura.Api\obj\Debug\netcoreapp2.2\Factura.Api.pdb
 C:\Users\0l0\Desktop\Finanzas\FinanzasTF\Backend\Factura.Api\bin\Debug\netcoreapp2.2\Factura.Api.deps.json
 C:\Users\0l0\Desktop\Finanzas\FinanzasTF\Backend\Factura.Api\bin\Debug\netcoreapp2.2\Factura.Api.runtimeconfig.json
 C:\Users\0l0\Desktop\Finanzas\FinanzasTF\Backend\Factura.Api\bin\Debug\netcoreapp2.2\Factura.Api.runtimeconfig.dev.json
@@ -19,5 +21,3 @@ C:\Users\0l0\Desktop\Finanzas\FinanzasTF\Backend\Factura.Api\obj\Debug\netcoreap
 C:\Users\0l0\Desktop\Finanzas\FinanzasTF\Backend\Factura.Api\obj\Debug\netcoreapp2.2\Factura.Api.csproj.CopyComplete
 C:\Users\0l0\Desktop\Finanzas\FinanzasTF\Backend\Factura.Api\obj\Debug\netcoreapp2.2\Factura.Api.dll
 C:\Users\0l0\Desktop\Finanzas\FinanzasTF\Backend\Factura.Api\obj\Debug\netcoreapp2.2\Factura.Api.pdb
-C:\Users\PC\Desktop\GIT\FinanzasTF\Backend\Factura.Api\obj\Debug\netcoreapp2.2\Factura.Api.dll
-C:\Users\PC\Desktop\GIT\FinanzasTF\Backend\Factura.Api\obj\Debug\netcoreapp2.2\Factura.Api.pdb

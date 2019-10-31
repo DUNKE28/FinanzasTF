@@ -33,14 +33,14 @@ namespace Factura.Api.Controllers
             );
         }
         [HttpPost]
-        public ActionResult Post([FromBody] Factura factura)
+        public ActionResult Post([FromBody] Factu factura)
         {
             return Ok(
                facturaService.Save(factura)
             );
         }
         [HttpPut("{id}")]
-        public ActionResult Put([FromBody] Factura factura)
+        public ActionResult Put([FromBody] Factu factura)
         {
             return Ok(
                 facturaService.Update(factura)

@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Factura.Domain
 {
-    public class Factura
+    public class Factu
     {
         public int Id { get; set; }
         [DisplayName("Fecha de consulta")]

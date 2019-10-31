@@ -82,7 +82,7 @@ namespace Factura.Repository.Implementation
                 originalCosto.Valor = entity.Valor;
                 originalCosto.Tipo = entity.Tipo;
                 originalCosto.PorcEfect = entity.PorcEfect;
-                //originalCosto.FacturaId = entity.FacturaId;
+                originalCosto.FacturaId = entity.FacturaId;
 
                 context.Costos.Update(originalCosto);
                 context.SaveChanges();

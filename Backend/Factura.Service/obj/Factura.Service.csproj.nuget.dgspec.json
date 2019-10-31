@@ -1,28 +1,30 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\PC\\Desktop\\GIT\\FinanzasTF\\Backend\\Factura.Service\\Factura.Service.csproj": {}
+    "C:\\Users\\0l0\\Desktop\\Finanzas\\FinanzasTF\\Backend\\Factura.Service\\Factura.Service.csproj": {}
   },
   "projects": {
-    "C:\\Users\\PC\\Desktop\\GIT\\FinanzasTF\\Backend\\Factura.Domain\\Factura.Domain.csproj": {
+    "C:\\Users\\0l0\\Desktop\\Finanzas\\FinanzasTF\\Backend\\Factura.Domain\\Factura.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\PC\\Desktop\\GIT\\FinanzasTF\\Backend\\Factura.Domain\\Factura.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\0l0\\Desktop\\Finanzas\\FinanzasTF\\Backend\\Factura.Domain\\Factura.Domain.csproj",
         "projectName": "Factura.Domain",
-        "projectPath": "C:\\Users\\PC\\Desktop\\GIT\\FinanzasTF\\Backend\\Factura.Domain\\Factura.Domain.csproj",
-        "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\PC\\Desktop\\GIT\\FinanzasTF\\Backend\\Factura.Domain\\obj\\",
+        "projectPath": "C:\\Users\\0l0\\Desktop\\Finanzas\\FinanzasTF\\Backend\\Factura.Domain\\Factura.Domain.csproj",
+        "packagesPath": "C:\\Users\\0l0\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\0l0\\Desktop\\Finanzas\\FinanzasTF\\Backend\\Factura.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\0l0\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netstandard2.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -54,32 +56,34 @@
         }
       }
     },
-    "C:\\Users\\PC\\Desktop\\GIT\\FinanzasTF\\Backend\\Factura.Repository\\Factura.Repository.csproj": {
+    "C:\\Users\\0l0\\Desktop\\Finanzas\\FinanzasTF\\Backend\\Factura.Repository\\Factura.Repository.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\PC\\Desktop\\GIT\\FinanzasTF\\Backend\\Factura.Repository\\Factura.Repository.csproj",
+        "projectUniqueName": "C:\\Users\\0l0\\Desktop\\Finanzas\\FinanzasTF\\Backend\\Factura.Repository\\Factura.Repository.csproj",
         "projectName": "Factura.Repository",
-        "projectPath": "C:\\Users\\PC\\Desktop\\GIT\\FinanzasTF\\Backend\\Factura.Repository\\Factura.Repository.csproj",
-        "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\PC\\Desktop\\GIT\\FinanzasTF\\Backend\\Factura.Repository\\obj\\",
+        "projectPath": "C:\\Users\\0l0\\Desktop\\Finanzas\\FinanzasTF\\Backend\\Factura.Repository\\Factura.Repository.csproj",
+        "packagesPath": "C:\\Users\\0l0\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\0l0\\Desktop\\Finanzas\\FinanzasTF\\Backend\\Factura.Repository\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\0l0\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netstandard2.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netstandard2.0": {
             "projectReferences": {
-              "C:\\Users\\PC\\Desktop\\GIT\\FinanzasTF\\Backend\\Factura.Domain\\Factura.Domain.csproj": {
-                "projectPath": "C:\\Users\\PC\\Desktop\\GIT\\FinanzasTF\\Backend\\Factura.Domain\\Factura.Domain.csproj"
+              "C:\\Users\\0l0\\Desktop\\Finanzas\\FinanzasTF\\Backend\\Factura.Domain\\Factura.Domain.csproj": {
+                "projectPath": "C:\\Users\\0l0\\Desktop\\Finanzas\\FinanzasTF\\Backend\\Factura.Domain\\Factura.Domain.csproj"
               }
             }
           }
@@ -112,35 +116,37 @@
         }
       }
     },
-    "C:\\Users\\PC\\Desktop\\GIT\\FinanzasTF\\Backend\\Factura.Service\\Factura.Service.csproj": {
+    "C:\\Users\\0l0\\Desktop\\Finanzas\\FinanzasTF\\Backend\\Factura.Service\\Factura.Service.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\PC\\Desktop\\GIT\\FinanzasTF\\Backend\\Factura.Service\\Factura.Service.csproj",
+        "projectUniqueName": "C:\\Users\\0l0\\Desktop\\Finanzas\\FinanzasTF\\Backend\\Factura.Service\\Factura.Service.csproj",
         "projectName": "Factura.Service",
-        "projectPath": "C:\\Users\\PC\\Desktop\\GIT\\FinanzasTF\\Backend\\Factura.Service\\Factura.Service.csproj",
-        "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\PC\\Desktop\\GIT\\FinanzasTF\\Backend\\Factura.Service\\obj\\",
+        "projectPath": "C:\\Users\\0l0\\Desktop\\Finanzas\\FinanzasTF\\Backend\\Factura.Service\\Factura.Service.csproj",
+        "packagesPath": "C:\\Users\\0l0\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\0l0\\Desktop\\Finanzas\\FinanzasTF\\Backend\\Factura.Service\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\0l0\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netstandard2.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netstandard2.0": {
             "projectReferences": {
-              "C:\\Users\\PC\\Desktop\\GIT\\FinanzasTF\\Backend\\Factura.Domain\\Factura.Domain.csproj": {
-                "projectPath": "C:\\Users\\PC\\Desktop\\GIT\\FinanzasTF\\Backend\\Factura.Domain\\Factura.Domain.csproj"
+              "C:\\Users\\0l0\\Desktop\\Finanzas\\FinanzasTF\\Backend\\Factura.Domain\\Factura.Domain.csproj": {
+                "projectPath": "C:\\Users\\0l0\\Desktop\\Finanzas\\FinanzasTF\\Backend\\Factura.Domain\\Factura.Domain.csproj"
               },
-              "C:\\Users\\PC\\Desktop\\GIT\\FinanzasTF\\Backend\\Factura.Repository\\Factura.Repository.csproj": {
-                "projectPath": "C:\\Users\\PC\\Desktop\\GIT\\FinanzasTF\\Backend\\Factura.Repository\\Factura.Repository.csproj"
+              "C:\\Users\\0l0\\Desktop\\Finanzas\\FinanzasTF\\Backend\\Factura.Repository\\Factura.Repository.csproj": {
+                "projectPath": "C:\\Users\\0l0\\Desktop\\Finanzas\\FinanzasTF\\Backend\\Factura.Repository\\Factura.Repository.csproj"
               }
             }
           }

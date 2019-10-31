@@ -1,28 +1,30 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\PC\\Desktop\\GIT\\FinanzasTF\\Backend\\Factura.Domain\\Factura.Domain.csproj": {}
+    "C:\\Users\\0l0\\Desktop\\Finanzas\\FinanzasTF\\Backend\\Factura.Domain\\Factura.Domain.csproj": {}
   },
   "projects": {
-    "C:\\Users\\PC\\Desktop\\GIT\\FinanzasTF\\Backend\\Factura.Domain\\Factura.Domain.csproj": {
+    "C:\\Users\\0l0\\Desktop\\Finanzas\\FinanzasTF\\Backend\\Factura.Domain\\Factura.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\PC\\Desktop\\GIT\\FinanzasTF\\Backend\\Factura.Domain\\Factura.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\0l0\\Desktop\\Finanzas\\FinanzasTF\\Backend\\Factura.Domain\\Factura.Domain.csproj",
         "projectName": "Factura.Domain",
-        "projectPath": "C:\\Users\\PC\\Desktop\\GIT\\FinanzasTF\\Backend\\Factura.Domain\\Factura.Domain.csproj",
-        "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\PC\\Desktop\\GIT\\FinanzasTF\\Backend\\Factura.Domain\\obj\\",
+        "projectPath": "C:\\Users\\0l0\\Desktop\\Finanzas\\FinanzasTF\\Backend\\Factura.Domain\\Factura.Domain.csproj",
+        "packagesPath": "C:\\Users\\0l0\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\0l0\\Desktop\\Finanzas\\FinanzasTF\\Backend\\Factura.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\PC\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\0l0\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netstandard2.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
