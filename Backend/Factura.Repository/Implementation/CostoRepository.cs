@@ -80,8 +80,8 @@ namespace Factura.Repository.Implementation
 
                 originalCosto.Motivo = entity.Motivo;
                 originalCosto.Valor = entity.Valor;
-                originalCosto.Tipo = entity.Tipo;
-                originalCosto.PorcEfect = entity.PorcEfect;
+                originalCosto.IsEfectivo = entity.IsEfectivo;
+                originalCosto.IsInit = entity.IsInit;
                 originalCosto.FacturaId = entity.FacturaId;
 
                 context.Costos.Update(originalCosto);

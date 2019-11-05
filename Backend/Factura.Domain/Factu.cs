@@ -26,24 +26,24 @@ namespace Factura.Domain
         public double Retencion { get; set; } 
         [DisplayName("Dias por año")]
         [Required(ErrorMessage="Introduzca los dias por año")]
-        public int DiasPorAño { get; set; }
+        public double DiasPorAño { get; set; }
         [DisplayName("Plazo de Tasa")]
         [Required(ErrorMessage="Introduzca el plazo de la Tasa")]
-        public int PlazoDeTasa { get; set; }
+        public double PlazoDeTasa { get; set; }
         public bool IsNominal { get; set; }
         [DisplayName("Tasa Efectiva")]
-        public int TasaEfectiva { get; set; }
+        public double TasaEfectiva { get; set; }
         [DisplayName("Tasa Nominal")]
-        public int TasaNominal { get; set; }
+        public double TasaNominal { get; set; }
         [DisplayName("Período de Capitalizacion")]
-        public int PeriodoCapital { get; set; }
-        public int m { get; set; }
-        public int n { get; set; }
+        public double PeriodoCapital { get; set; }
+        public double m { get; set; }
+        public double n { get; set; }
         [DisplayName("Fecha de descuento")]
         [Required(ErrorMessage="Introduzca la fecha de descuento")]
         public DateTime FechaDescuento { get; set; }
         public double TEA { get; set; }
-        public int DiasTranscurridos { get; set; }
+        public double DiasTranscurridos { get; set; }
         public double TEPeriodo { get; set; }
         public double dPeriodo { get; set; }
         public double DescuentoPeriodo { get; set; }
