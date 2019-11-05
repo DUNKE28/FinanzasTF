@@ -38,8 +38,6 @@ namespace Factura.Repository.Implementation
             try
             {
                 result = context.Facturas
-                .Include(factura => factura.Usuario)
-                .Include(factura => factura.Costos)
                 .ToList();
             }
             catch (Exception)
@@ -55,8 +53,6 @@ namespace Factura.Repository.Implementation
             try
             {
                 result = context.Facturas
-                    .Include(factura => factura.Usuario)
-                    .Include(factura => factura.Costos)
                     .Single(x => x.Id == id);
             }
             catch (Exception)
@@ -74,22 +70,49 @@ namespace Factura.Repository.Implementation
                 if (entity.IsNominal){
                     entity.m = entity.PlazoDeTasa / entity.PeriodoCapital;
                     entity.n = entity.DiasPorAño / entity.PeriodoCapital;
-                    entity.TEA = Math.Pow(1+(entity.TasaNominal/entity.m),entity.n) - 1;
-                    entity.TEPeriodo = Math.Pow(1+(entity.TasaNominal/entity.m),entity.DiasTranscurridos/entity.PeriodoCapital) - 1;
+                    entity.TEA = Math.Pow((1+(entity.TasaNominal/entity.m)),entity.n) - 1;
+                    entity.TEPeriodo = Math.Pow((1+(entity.TasaNominal/entity.m)),(entity.DiasTranscurridos/entity.PeriodoCapital)) - 1;
                 }
                 else {
-                    entity.TEA = Math.Pow(1+entity.TasaEfectiva,entity.DiasPorAño/entity.PlazoDeTasa) - 1;
-                    entity.TEPeriodo = Math.Pow(1+entity.TasaEfectiva,entity.DiasTranscurridos/entity.PlazoDeTasa) - 1;
+                    entity.TEA = Math.Pow((1+entity.TasaEfectiva),(entity.DiasPorAño/entity.PlazoDeTasa)) - 1;
+                    entity.TEPeriodo = Math.Pow((1+entity.TasaEfectiva),(entity.DiasTranscurridos/entity.PlazoDeTasa)) - 1;
                 }
                 entity.dPeriodo = entity.TEPeriodo/(1+entity.TEPeriodo);
                 entity.DescuentoPeriodo = entity.TotalFacturado*entity.dPeriodo;
+                entity.DescuentoPeriodo = Math.Round(entity.DescuentoPeriodo,2);
                 entity.CostesIniciales = 0;
-                entity.ValorNeto = entity.TotalFacturado - entity.DescuentoPeriodo;
-                entity.ValorRecibido = entity.ValorNeto-entity.CostesIniciales;
                 entity.CostesFinales = 0;
-                entity.ValorEntregado = entity.TotalFacturado + entity.CostesFinales;
-                entity.TCEA = Math.Pow(entity.ValorEntregado/entity.ValorRecibido,entity.DiasPorAño/entity.PlazoDeTasa) - 1;
+                for (int i = 0; i < entity.Costos.Count(); i++)
+                {
+                    Costo aux = entity.Costos.ElementAt(i);
+                    if (aux.IsInit){
+                        if (aux.IsEfectivo){
+                            entity.CostesIniciales += aux.Valor;
+                        } else {
+                            entity.CostesIniciales += aux.Valor * entity.TotalFacturado;
+                        }
+                    } else {
+                        if (aux.IsEfectivo){
+                            entity.CostesFinales += aux.Valor;
+                        } else {
+                            entity.CostesFinales += aux.Valor * entity.TotalFacturado;
+                        }
+                    }
+                }
+                entity.CostesIniciales = Math.Round(entity.CostesIniciales,2);
+                entity.CostesFinales = Math.Round(entity.CostesFinales,2);
+                entity.ValorNeto = entity.TotalFacturado - entity.DescuentoPeriodo;
+                entity.ValorNeto = Math.Round(entity.ValorNeto,2);
 
+                entity.ValorRecibido = entity.ValorNeto - entity.CostesIniciales;
+                entity.ValorRecibido = Math.Round(entity.ValorRecibido,2);
+
+                
+                entity.ValorEntregado = entity.TotalFacturado + entity.CostesFinales;
+                entity.ValorEntregado = Math.Round(entity.ValorEntregado,2);
+
+                entity.TCEA = Math.Pow((entity.ValorEntregado/entity.ValorRecibido),(entity.DiasPorAño/entity.DiasTranscurridos)) - 1;
+                
                 context.Add(entity);
                 context.SaveChanges();
             }

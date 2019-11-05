@@ -10,7 +10,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Factura.Repository.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20191031031321_init")]
+    [Migration("20191105181934_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -28,11 +28,11 @@ namespace Factura.Repository.Migrations
 
                     b.Property<int>("FacturaId");
 
+                    b.Property<bool>("IsEfectivo");
+
+                    b.Property<bool>("IsInit");
+
                     b.Property<string>("Motivo");
-
-                    b.Property<string>("PorcEfect");
-
-                    b.Property<string>("Tipo");
 
                     b.Property<double>("Valor");
 
@@ -54,9 +54,9 @@ namespace Factura.Repository.Migrations
 
                     b.Property<double>("DescuentoPeriodo");
 
-                    b.Property<int>("DiasPorAño");
+                    b.Property<double>("DiasPorAño");
 
-                    b.Property<int>("DiasTranscurridos");
+                    b.Property<double>("DiasTranscurridos");
 
                     b.Property<DateTime>("FechaConsulta");
 
@@ -68,9 +68,9 @@ namespace Factura.Repository.Migrations
 
                     b.Property<bool>("IsNominal");
 
-                    b.Property<int>("PeriodoCapital");
+                    b.Property<double>("PeriodoCapital");
 
-                    b.Property<int>("PlazoDeTasa");
+                    b.Property<double>("PlazoDeTasa");
 
                     b.Property<double>("Retencion");
 
@@ -80,9 +80,9 @@ namespace Factura.Repository.Migrations
 
                     b.Property<double>("TEPeriodo");
 
-                    b.Property<int>("TasaEfectiva");
+                    b.Property<double>("TasaEfectiva");
 
-                    b.Property<int>("TasaNominal");
+                    b.Property<double>("TasaNominal");
 
                     b.Property<double>("TotalFacturado");
 
@@ -96,9 +96,9 @@ namespace Factura.Repository.Migrations
 
                     b.Property<double>("dPeriodo");
 
-                    b.Property<int>("m");
+                    b.Property<double>("m");
 
-                    b.Property<int>("n");
+                    b.Property<double>("n");
 
                     b.HasKey("Id");
 
