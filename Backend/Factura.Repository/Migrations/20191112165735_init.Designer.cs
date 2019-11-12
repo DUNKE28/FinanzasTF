@@ -10,7 +10,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Factura.Repository.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20191105181934_init")]
+    [Migration("20191112165735_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

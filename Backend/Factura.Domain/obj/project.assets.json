@@ -179,23 +179,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\0l0\\.nuget\\packages\\": {},
+    "C:\\Users\\USUARIO\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\0l0\\Desktop\\Finanzas\\FinanzasTF\\Backend\\Factura.Domain\\Factura.Domain.csproj",
+      "projectUniqueName": "C:\\Users\\USUARIO\\Desktop\\Git\\FinanzasTF\\Backend\\Factura.Domain\\Factura.Domain.csproj",
       "projectName": "Factura.Domain",
-      "projectPath": "C:\\Users\\0l0\\Desktop\\Finanzas\\FinanzasTF\\Backend\\Factura.Domain\\Factura.Domain.csproj",
-      "packagesPath": "C:\\Users\\0l0\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\0l0\\Desktop\\Finanzas\\FinanzasTF\\Backend\\Factura.Domain\\obj\\",
+      "projectPath": "C:\\Users\\USUARIO\\Desktop\\Git\\FinanzasTF\\Backend\\Factura.Domain\\Factura.Domain.csproj",
+      "packagesPath": "C:\\Users\\USUARIO\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\USUARIO\\Desktop\\Git\\FinanzasTF\\Backend\\Factura.Domain\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\0l0\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\USUARIO\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

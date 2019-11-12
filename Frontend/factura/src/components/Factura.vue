@@ -7,35 +7,33 @@
             <v-spacer></v-spacer>
 
             
-            <v-dialog v-model="verMedicamentos" max-width="1000px">
+            <v-dialog v-model="verCostos" max-width="1000px">
                 <v-card>
                     <v-card-title>
-                        <span class="headline">Seleccione un medicamento</span>
+                        <span class="headline">Agregar costo</span>
                     </v-card-title>
                     <v-card-text>
                         <v-container grid-list-md>
                             <v-layout wrap>
-                                <v-flex xs12 sm12 md12 lg12 xl12>
-                                    <v-text-field append-icon="search" class="text-xs-center" v-model="texto" label="Ingrese medicamento a buscar" @keyup.enter="listarMedicamento()">
-
+                                <v-flex xs12 sm4 md4 lg4 xl4>
+                                    <v-select v-model="motivo" :items="motivos" label="Motivo">
+                                    </v-select>
+                                </v-flex>
+                                <v-flex xs12 sm4 md4 lg4 xl4>
+                                    <v-select v-model="isEfectivo" :items="expresadoEn" label="Expresado en">
+                                    </v-select>
+                                </v-flex>
+                                <v-flex xs12 sm4 md4 lg4 xl4>
+                                    <v-select v-model="isInit" :items="tiempo" label="Final o Inicial">
+                                    </v-select>
+                                </v-flex>
+                                <v-flex xs12 sm4 md4 lg4 xl4 v-if="isEfectivo">
+                                    <v-text-field prefix="$" v-model="valor" label="Valor">
                                     </v-text-field>
-                                    <template>
-                                        <v-data-table :headers="cabeceraMedicamentos" :items="medicamentos" class="elevation-1">
-                                            <template slot="items" slot-scope="props">
-                                                <td class="justify-center layout px-0">
-                                                    <v-icon small class="mr-2" @click="agregarDetalle(props.item)">
-                                                        add
-                                                    </v-icon>
-                                                </td>
-                                                <td>{{props.item.id }}</td>
-                                                <td>{{props.item.name }}</td>
-                                                <td>{{props.item.price}}</td>
-                                            </template>
-                                            <template slot="no-data">
-                                                <h3>No hay medicamentos para mostrar.</h3>
-                                            </template>
-                                        </v-data-table>
-                                    </template>
+                                </v-flex>
+                                <v-flex xs12 sm4 md4 lg4 xl4 v-if="!isEfectivo">
+                                    <v-text-field suffix="%" v-model="valor" label="Valor">
+                                    </v-text-field>
                                 </v-flex>
                             </v-layout>
                         </v-container>
@@ -45,6 +43,9 @@
                         <v-btn @click="ocultarMedicamentos()" color="blue darken" flat>
                             Cancelar
                         </v-btn>
+                        <v-btn @click="agregarCosto(),limpiarCosto()" color="success" flat>
+                            Agregar
+                        </v-btn>
                     </v-card-actions>
                 </v-card>
             </v-dialog>
@@ -52,29 +53,95 @@
         
 
         <v-container grid-list-sm class="pa-4 white" v-if="verNuevo">
+            <h3>Datos de la Factura</h3>
             <v-layout row wrap>
                 <v-flex xs12 sm4 md4 lg4 xl4>
-                    <v-select v-model="metodoPago" :items="metodosPagos" label="Metodo de Pago">
-                    </v-select>
-                </v-flex>
-                <v-flex xs12 sm4 md4 lg4 xl4>
-                    <v-text-field v-model="numeroOrden" label="Numero Orden">
-                    </v-text-field>
-                </v-flex>
-
-                <v-flex xs12 sm8 md8 lg8 xl8>
-                    <v-select v-model="pacienteId" :items="pacientes" label="Paciente">
-                    </v-select>
+                    <v-menu v-model="modal1" :close-on-content-click="false" :nudge-right="10" lazy transition="scale-transition"
+                        offset-y min-width="290px" >
+                        <template v-slot:activator="{ on }">
+                            <v-text-field v-model="fechaEmision" label="Fecha de Emision" prepend-icon="event" readonly v-on="on"></v-text-field>
+                        </template>
+                        <v-date-picker v-model="fechaEmision" @input="modal1 = false" ></v-date-picker>
+                    </v-menu>
                 </v-flex>
 
                 <v-flex xs12 sm4 md4 lg4 xl4>
-                    <v-text-field v-model="total" label="Total">
+                    <v-menu v-model="modal2" :close-on-content-click="false" :nudge-right="10" lazy transition="scale-transition"
+                        offset-y min-width="290px" >
+                        <template v-slot:activator="{ on }">
+                            <v-text-field v-model="fechaPago" label="Fecha de Pago" prepend-icon="event" readonly v-on="on"></v-text-field>
+                        </template>
+                        <v-date-picker v-model="fechaPago" @input="modal2 = false" ></v-date-picker>
+                    </v-menu>
+                </v-flex>
+
+                <v-flex xs12 sm4 md4 lg4 xl4>
+                    <v-text-field value="10.00" prefix="$" type="number" v-model="totalFacturado" label="Total Facturado">
+                    </v-text-field>
+                </v-flex>
+            </v-layout>
+        </v-container>
+
+        <v-container grid-list-sm class="pa-4 white" v-if="verNuevo">
+            <h3>Tasa y Plazo</h3>
+            <v-layout row wrap>
+                <v-flex xs12 sm4 md4 lg4 xl4>
+                    <v-select v-model="diasPorAño" :items="diasPorAñoarr" label="Dias por año">
+                    </v-select>
+                </v-flex>
+
+                <v-flex xs12 sm4 md4 lg4 xl4>
+                    <v-select v-model="plazoDeTasa" :items="plazos" label="Plazo de la Tasa">
+                    </v-select>
+                </v-flex>
+
+                <v-flex xs12 sm4 md4 lg4 xl4>
+                    <v-text-field value="plazoDeTasa" v-model="plazoDeTasa" label="Plazo de la Tasa (Dias)">
                     </v-text-field>
                 </v-flex>
 
+                <v-flex xs12 sm4 md4 lg4 xl4>
+                    <v-select v-model="isNominal" :items="typeTasa" label="Tipo de Tasa">
+                    </v-select>
+                </v-flex>
+
+                <v-flex xs12 sm4 md4 lg4 xl4 v-if="!isNominal">
+                    <v-text-field suffix="%" v-model="tasaEfectiva" label="Tasa Efectiva">
+                    </v-text-field>
+                </v-flex>
+
+                <v-flex xs12 sm4 md4 lg4 xl4 v-if="isNominal">
+                    <v-text-field suffix="%" v-model="tasaNominal" label="Tasa Nominal">
+                    </v-text-field>
+                </v-flex>
+
+                <v-flex xs12 sm4 md4 lg4 xl4 v-if="isNominal">
+                    <v-select v-model="periodoCapital" :items="plazos" label="Periodo de Capitalizacion">
+                    </v-select>
+                </v-flex>
+
+                <v-flex xs12 sm4 md4 lg4 xl4 v-if="isNominal">
+                    <v-text-field value="periodoCapital" v-model="periodoCapital" label="Periodo de Capitalizacion (Dias)">
+                    </v-text-field>
+                </v-flex>
+
+                <v-flex xs12 sm4 md4 lg4 xl4>
+                    <v-menu v-model="modal3" :close-on-content-click="false" :nudge-right="10" lazy transition="scale-transition"
+                        offset-y min-width="290px" >
+                        <template v-slot:activator="{ on }">
+                            <v-text-field v-model="fechaDescuento " label="Fecha de Descuento" prepend-icon="event" readonly v-on="on"></v-text-field>
+                        </template>
+                        <v-date-picker v-model="fechaDescuento" @input="modal3 = false" ></v-date-picker>
+                    </v-menu>
+                </v-flex>
+            </v-layout>
+        </v-container>
+        <v-container grid-list-sm class="pa-4 white" v-if="verNuevo">
+            <h3>Costos/Gastos</h3>
+            <v-layout row wrap>
                 <v-flex xs12 sm2 md2 lg2 xl2>
-                    <v-btn @click="mostrarMedicamentos()" small fab dark color="teal">
-                        <v-icon dark>list</v-icon>
+                    <v-btn class="mx-2" @click="mostrarMedicamentos()" small fab dark color="teal">
+                        <v-icon dark>add</v-icon>
                     </v-btn>
                 </v-flex>
 
@@ -84,31 +151,30 @@
                 </v-flex>
 
                 <v-flex xs12 sm12 md12 lg12 xl12>
-                    <v-data-table :headers="cabeceraDetalles" :items="detalles" hide-actions class="elevation-1">
+                    <v-data-table :headers="cabeceraCostos" :items="auxCostos" hide-actions class="elevation-1">
                         <template slot="items" slot-scope="props">
                             <td class="justify-center layout px-0">
-                                <v-icon small class="mr-2" @click="eliminarDetalle(detalles,props.item)">
+                                <v-icon small class="mr-2" @click="eliminarCosto(auxCostos,props.item)">
                                     delete
                                 </v-icon>
                             </td>
-                            <td>{{props.item.nombreMedicamento}}</td>
-                            <td>
-                                <v-text-field type="number" v-model="props.item.cantidad"></v-text-field>
-                            </td>
-                            <td>
-                                <v-text-field type="number" v-model="props.item.precio"></v-text-field>
-                            </td>
-                            <td>$ {{props.item.cantidad * props.item.precio}}</td>
+                            <td>{{props.item.motivo}}</td>
+                            <td v-if="props.item.isEfectivo">${{props.item.valor}}</td>
+                            <td v-if="!props.item.isEfectivo">{{props.item.valor * 100}}%</td>
+                            <td v-if="props.item.isInit" >Inicial</td>
+                            <td v-if="!props.item.isInit" >Final</td>
+                            <td v-if="props.item.isEfectivo" >Efectivo</td>
+                            <td v-if="!props.item.isEfectivo" >Porcentaje</td>
                         </template>
                         <template slot="no-data">
-                            <h3>No hay medicamentos agregados al detalle.</h3>
+                            <h3>No hay costos agregados.</h3>
                         </template>
                     </v-data-table>
                 </v-flex>
 
                 <v-flex xs12 sm12 md12 lg12 xl12>
-                    <v-btn @click="ocultarNuevo()" color="blue darken-1" flat>Cancelar</v-btn>
-                    <v-btn @click="guardar()" color="success">Guardar</v-btn>
+                    <v-btn @click="limpiar()" color="blue darken-1" flat>Limpiar</v-btn>
+                    <v-btn @click="guardar()" color="success">Calcular Factura</v-btn>
                 </v-flex>
             </v-layout>
         </v-container>
@@ -122,85 +188,142 @@ import axios from 'axios'
 export default {
     data() {
         return {
+            modal1: false,
+            modal2: false,
+            modal3: false,
+            fechaConsulta: new Date(),
+            fechaEmision: '',
+            fechaPago: '',
+            totalFacturado: '',
+            diasPorAño: '',
+            diasPorAñoarr: [360, 350],
+            plazoDeTasa:'',
+            plazos: [{
+                    text: 'Diario',
+                    value: 1
+                },
+                {
+                    text: 'Quincenal',
+                    value: 15
+                },
+                {
+                    text: 'Mensual',
+                    value: 30
+                },
+                {
+                    text: 'Bimestral',
+                    value: 60
+                },
+                {
+                    text: 'Trimestral',
+                    value: 90
+                },
+                {
+                    text: 'Cuatrimestral',
+                    value: 120
+                },
+                {
+                    text: 'Semestral',
+                    value: 180
+                },
+                {
+                    text: 'Anual',
+                    value: 360
+                },
+                {
+                    text: 'Especial',
+                    value: 22
+                }],
+            
+            isNominal: false,
+            typeTasa: [{
+                text: 'Nominal',
+                value: true
+            },
+            {
+                text: 'Efectiva',
+                value: false  
+            }],
+            tasaEfectiva: '',
+            tasaNominal: '',
+            periodoCapital: 0,
+            fechaDescuento: '',
+            costos: [],
+            auxCostos: [],
+            usuarioId: 1,
+            facturaId: 1,
+            motivo: '',
+            valor: '',
+            isEfectivo: true,
+            isInit: true,
+
+            motivos: [{
+                text: 'Portes',
+                value: 'Portes'
+            },
+            {
+                text: 'Fotocopias',
+                value: 'Fotocopias'
+            },
+            {
+                text: 'Seguro',
+                value: 'Seguro'
+            },
+            {
+                text: 'Otros',
+                value: 'Otros'
+            }],
+
+            expresadoEn: [{
+                text: 'Efectivo',
+                value: true
+            },
+            {
+                text: 'Porcentaje',
+                value: false
+            }],
+
+            tiempo: [{
+                text: 'Inicial',
+                value: true
+            },
+            {
+                text: 'Final',
+                value: false
+            }],
 
             dialog: false,
-            headers: [{
-                    text: 'Paciente',
-                    value: 'paciente'
-                },
-                {
-                    text: 'Orden Nro',
-                    value: 'ordennro'
-                },
-                {
-                    text: 'Metodo Pago',
-                    value: 'pagometodo',
-                    sortable: false
-                },
-                {
-                    text: 'Total',
-                    value: 'total',
-                    sortable: false
-                }
-            ],
-            cabeceraDetalles: [{
+
+            cabeceraCostos: [{
                     text: 'Borrar',
                     value: 'borrar',
                     sortable: false
                 },
                 {
-                    text: 'Medicamento',
-                    value: 'nombreMedicamento',
+                    text: 'Motivo',
+                    value: 'motivo',
                     sortable: false
                 },
                 {
-                    text: 'Precio',
-                    value: 'precio',
+                    text: 'Valor',
+                    value: 'valor',
                     sortable: false
                 },
                 {
-                    text: 'Cantidad',
-                    value: 'cantidad',
+                    text: 'Es Inicial',
+                    value: 'isInit',
+                    sortable: true
+                },
+                {
+                    text: 'Es Efectivo',
+                    value: 'isEfectivo',
                     sortable: false
                 }
             ],
             verNuevo: 1,
-            verMedicamentos: 0,
-
+            verCostos: 0,
             errorMedicamento: '',
             texto: '',
-
-            detalles: [],
-            medicamentos: [],
-            pacientes: [],
-            ordenes: [],
-
-            
-            pacienteId: '',
-            metodosPagos: ['Tarjeta', 'Efectivo'],
-            metodoPago: '',
-            numeroOrden: '',
-            total: 0,
-
-            cabeceraMedicamentos: [{
-                    text: 'Seleccionar',
-                    value: 'seleccionar',
-                    sortable: false
-                },
-                {
-                    text: 'Codigo',
-                    value: 'codigo'
-                },
-                {
-                    text: 'Medicamento',
-                    value: 'medicamento'
-                },
-                {
-                    text: 'Precio',
-                    value: 'precio',
-                    sortable: false
-                }
-            ]
         }
     },
 
@@ -217,32 +340,22 @@ export default {
     },
 
     methods: {
+
         mostrarNuevo() {
             this.verNuevo = 1;
         },
 
         mostrarMedicamentos() {
-            this.verMedicamentos = 1;
+            this.verCostos = 1;
         },
         ocultarMedicamentos() {
-            this.verMedicamentos = 0;
-        },
-
-        listarMedicamento() {
-            let me = this;
-
-            axios.get('api/medicamento/' + me.texto).then(function (response) {
-                console.log(response);
-                me.medicamentos = response.data;
-            }).catch(function (error) {
-                console.log(error);
-            });
+            this.verCostos = 0;
         },
 
         listar() {
             let me = this;
 
-            axios.get('api/orden').then(function (response) {
+            axios.get('api/Factura').then(function (response) {
                 //console.log(response);
                 me.ordenes = response.data;
             }).catch(function (error) {
@@ -250,50 +363,23 @@ export default {
             });
         },
 
-        listarPacientes() {
+        agregarCosto() {
             let me = this;
-            var pacientesArray = [];
-            axios.get('api/paciente').then(function (response) {
-                // console.log(response.data);
-                pacientesArray = response.data;
-                pacientesArray.map((p) => {
-                    me.pacientes.push({
-                        text: p.nombres,
-                        value: p.id
-                    });
-                });
-            }).catch(function (error) {
-                console.log(error);
-            });
-        },
-
-        agregarDetalle(data = []) {
-
-            console.log(data);
             this.errorMedicamento = null;
-            if (this.encuentra(data['id'])) {
-                this.errorMedicamento = "El medicamento ya ha sido agregado."
-            } else {
-                this.detalles.push({
-                    medicamentoId: data['id'],
-                    nombreMedicamento: data['name'],
-                    cantidad: 1,
-                    precio: data['price']
-                });
+            if (!me.isEfectivo) {
+                me.valor = me.valor / 100
             }
+            this.auxCostos.push({
+                facturaId: 1,
+                motivo: me.motivo,
+                isEfectivo: me.isEfectivo,
+                isInit: me.isInit,
+                valor: me.valor
+            });
+            console.log(this.auxCostos);
         },
 
-        encuentra(id) {
-            var sw = 0;
-            for (var i = 0; i < this.detalles.length; i++) {
-                if (this.detalles[i].medicamentoId == id) {
-                    sw = 1;
-                }
-            }
-            return sw;
-        },
-
-        eliminarDetalle(arr, item) {
+        eliminarCosto(arr, item) {
             var i = arr.indexOf(item);
             if (i !== -1) {
                 arr.splice(i, 1);
@@ -301,16 +387,24 @@ export default {
         },
 
         guardar() {
-
             let me = this;
-
+            me.costos = me.auxCostos;
+            console.log(me.fechaEmision);
             axios
-                .post("api/orden", {
-                    pacienteId: me.pacienteId,
-                    ordenNro: me.numeroOrden,
-                    pagoMetodo: me.metodoPago,
-                    total: me.total,
-                    detalleOrden: me.detalles
+                .post("api/Factura", {
+                    fechaConsulta: new Date(),
+                    fechaEmision: me.fechaEmision,
+                    fechaPago: me.fechaPago,
+                    totalFacturado: me.totalFacturado,
+                    diasPorAño: me.diasPorAño,
+                    plazoDeTasa: me.plazoDeTasa,
+                    isNominal: me.isNominal,
+                    tasaEfectiva: me.tasaEfectiva/100,
+                    tasaNominal: me.tasaNominal/100,
+                    periodoCapital: me.periodoCapital,
+                    fechaDescuento: me.fechaDescuento,
+                    costos: me.costos,
+                    usuarioId: me.usuarioId
                 })
                 .then(function (response) {
                     me.ocultarNuevo();
@@ -324,12 +418,20 @@ export default {
         },
 
         limpiar() {
-
-            this.pacienteId = '';
-            this.metodoPago = '';
-            this.numeroOrden='';
-            this.detalles = [];
-            this.total = 0;
+            this.fechaEmision = '',
+            this.fechaPago = '',
+            this.totalFacturado = '',
+            this.diasPorAño = '',
+            this.plazoDeTasa = '',
+            this.tasaEfectiva = '',
+            this.tasaNominal = '',
+            this.fechaDescuento = ''
+            this.auxCostos = [];
+            this.costos = [];
+        },
+        limpiarCosto() {
+            this.motivo = '',
+            this.valor = ''
         },
 
     },
