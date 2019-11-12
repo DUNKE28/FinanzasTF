@@ -28,15 +28,3 @@ C:\Users\0l0\Desktop\Finanzas\FinanzasTF\Backend\Factura.Domain\obj\Debug\netsta
 C:\Users\0l0\Desktop\Finanzas\FinanzasTF\Backend\Factura.Domain\obj\Debug\netstandard2.0\Factura.Domain.csproj.CopyComplete
 C:\Users\0l0\Desktop\Finanzas\FinanzasTF\Backend\Factura.Domain\obj\Debug\netstandard2.0\Factura.Domain.dll
 C:\Users\0l0\Desktop\Finanzas\FinanzasTF\Backend\Factura.Domain\obj\Debug\netstandard2.0\Factura.Domain.pdb
-C:\Users\USUARIO\Desktop\Git\FinanzasTF\Backend\Factura.Domain\bin\Debug\netstandard2.0\Factura.Domain.deps.json
-C:\Users\USUARIO\Desktop\Git\FinanzasTF\Backend\Factura.Domain\bin\Debug\netstandard2.0\Factura.Domain.dll
-C:\Users\USUARIO\Desktop\Git\FinanzasTF\Backend\Factura.Domain\bin\Debug\netstandard2.0\Factura.Domain.pdb
-C:\Users\USUARIO\Desktop\Git\FinanzasTF\Backend\Factura.Domain\bin\Debug\netstandard2.0\System.ComponentModel.Annotations.dll
-C:\Users\USUARIO\Desktop\Git\FinanzasTF\Backend\Factura.Domain\bin\Debug\netstandard2.0\System.ComponentModel.Annotations.xml
-C:\Users\USUARIO\Desktop\Git\FinanzasTF\Backend\Factura.Domain\obj\Debug\netstandard2.0\Factura.Domain.csprojAssemblyReference.cache
-C:\Users\USUARIO\Desktop\Git\FinanzasTF\Backend\Factura.Domain\obj\Debug\netstandard2.0\Factura.Domain.csproj.CoreCompileInputs.cache
-C:\Users\USUARIO\Desktop\Git\FinanzasTF\Backend\Factura.Domain\obj\Debug\netstandard2.0\Factura.Domain.AssemblyInfoInputs.cache
-C:\Users\USUARIO\Desktop\Git\FinanzasTF\Backend\Factura.Domain\obj\Debug\netstandard2.0\Factura.Domain.AssemblyInfo.cs
-C:\Users\USUARIO\Desktop\Git\FinanzasTF\Backend\Factura.Domain\obj\Debug\netstandard2.0\Factura.Domain.csproj.CopyComplete
-C:\Users\USUARIO\Desktop\Git\FinanzasTF\Backend\Factura.Domain\obj\Debug\netstandard2.0\Factura.Domain.dll
-C:\Users\USUARIO\Desktop\Git\FinanzasTF\Backend\Factura.Domain\obj\Debug\netstandard2.0\Factura.Domain.pdb

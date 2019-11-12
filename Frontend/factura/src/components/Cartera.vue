@@ -6,7 +6,7 @@
             <v-divider class="mx-2" inset vertical></v-divider>
             <v-spacer></v-spacer>
 
-            <v-btn v-if="verNuevo==0" @click="mostrarNuevo" color="primary" dark class="mb-2">Nuevo</v-btn>
+            <v-btn v-if="verNuevo==0" @click="mostrarNuevo" color="primary" dark class="mb-2">Calcular</v-btn>
 
             <v-dialog v-model="verMedicamentos" max-width="1000px">
                 <v-card>
