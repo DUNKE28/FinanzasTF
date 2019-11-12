@@ -5,6 +5,6 @@ namespace Factura.Repository
 {
     public interface IFacturaRepository:IRepository<Factu>
     {
-        
+        Factu GetLastResult();
     }
 }

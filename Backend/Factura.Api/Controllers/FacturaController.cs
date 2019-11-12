@@ -25,6 +25,13 @@ namespace Factura.Api.Controllers
                 facturaService.GetAll()
             );
         }
+        [HttpGet("last")]
+        public ActionResult GetLast()
+        {
+            return Ok(
+                facturaService.GetLastResult()
+            );
+        }
         [HttpGet("{id}")]
         public ActionResult GetById(int id)
         {

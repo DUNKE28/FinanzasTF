@@ -175,5 +175,21 @@ namespace Factura.Repository.Implementation
             }
             return true;
         }
+        public Factu GetLastResult()
+        {
+            var result = new List<Factu>();
+            var ilast = new Factu();
+            try
+            {
+                result = context.Facturas.ToList();
+                ilast = result.Last();
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return ilast;
+        }
     }
 }

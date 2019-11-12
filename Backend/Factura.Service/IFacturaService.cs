@@ -7,6 +7,6 @@ namespace Factura.Service
 {
     public interface IFacturaService : IService<Factu>
     {
-         
+         Factu GetLastResult();
     }
 }

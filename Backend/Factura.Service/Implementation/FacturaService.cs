@@ -30,6 +30,11 @@ namespace Factura.Service.Implementation
             return facturaRepository.GetById(id);
         }
 
+        public Factu GetLastResult()
+        {
+            return facturaRepository.GetLastResult();
+        }
+
         public bool Save(Factu entity)
         {
             return facturaRepository.Save(entity);
