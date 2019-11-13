@@ -14,3 +14,17 @@ C:\Users\0l0\Desktop\Finanzas\FinanzasTF\Backend\Factura.Service\obj\Debug\netst
 C:\Users\0l0\Desktop\Finanzas\FinanzasTF\Backend\Factura.Service\obj\Debug\netstandard2.0\Factura.Service.csproj.CopyComplete
 C:\Users\0l0\Desktop\Finanzas\FinanzasTF\Backend\Factura.Service\obj\Debug\netstandard2.0\Factura.Service.dll
 C:\Users\0l0\Desktop\Finanzas\FinanzasTF\Backend\Factura.Service\obj\Debug\netstandard2.0\Factura.Service.pdb
+C:\Users\USUARIO\Desktop\Git\FinanzasTF\Backend\Factura.Service\bin\Debug\netstandard2.0\Factura.Service.deps.json
+C:\Users\USUARIO\Desktop\Git\FinanzasTF\Backend\Factura.Service\bin\Debug\netstandard2.0\Factura.Service.dll
+C:\Users\USUARIO\Desktop\Git\FinanzasTF\Backend\Factura.Service\bin\Debug\netstandard2.0\Factura.Service.pdb
+C:\Users\USUARIO\Desktop\Git\FinanzasTF\Backend\Factura.Service\bin\Debug\netstandard2.0\Factura.Domain.dll
+C:\Users\USUARIO\Desktop\Git\FinanzasTF\Backend\Factura.Service\bin\Debug\netstandard2.0\Factura.Repository.dll
+C:\Users\USUARIO\Desktop\Git\FinanzasTF\Backend\Factura.Service\bin\Debug\netstandard2.0\Factura.Repository.pdb
+C:\Users\USUARIO\Desktop\Git\FinanzasTF\Backend\Factura.Service\bin\Debug\netstandard2.0\Factura.Domain.pdb
+C:\Users\USUARIO\Desktop\Git\FinanzasTF\Backend\Factura.Service\obj\Debug\netstandard2.0\Factura.Service.csprojAssemblyReference.cache
+C:\Users\USUARIO\Desktop\Git\FinanzasTF\Backend\Factura.Service\obj\Debug\netstandard2.0\Factura.Service.csproj.CoreCompileInputs.cache
+C:\Users\USUARIO\Desktop\Git\FinanzasTF\Backend\Factura.Service\obj\Debug\netstandard2.0\Factura.Service.AssemblyInfoInputs.cache
+C:\Users\USUARIO\Desktop\Git\FinanzasTF\Backend\Factura.Service\obj\Debug\netstandard2.0\Factura.Service.AssemblyInfo.cs
+C:\Users\USUARIO\Desktop\Git\FinanzasTF\Backend\Factura.Service\obj\Debug\netstandard2.0\Factura.Service.csproj.CopyComplete
+C:\Users\USUARIO\Desktop\Git\FinanzasTF\Backend\Factura.Service\obj\Debug\netstandard2.0\Factura.Service.dll
+C:\Users\USUARIO\Desktop\Git\FinanzasTF\Backend\Factura.Service\obj\Debug\netstandard2.0\Factura.Service.pdb

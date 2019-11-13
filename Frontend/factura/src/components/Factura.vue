@@ -174,10 +174,25 @@
 
                 <v-flex xs12 sm12 md12 lg12 xl12>
                     <v-btn @click="limpiar()" color="blue darken-1" flat>Limpiar</v-btn>
-                    <v-btn @click="guardar()" color="success">Calcular Factura</v-btn>
+                    <v-btn @click="guardar(),obtenerResultado()" color="success">Calcular Factura</v-btn>
                 </v-flex>
             </v-layout>
         </v-container>
+
+
+        
+        <v-flex xs12 sm12 md12 lg12 xl12 v-if="result">
+            <h2>Resultados:</h2>
+                    <v-data-table :headers="cabeceraResultados" :items="resultados" hide-actions class="elevation-1">
+                        <template slot="items" slot-scope="props">
+                            <td>{{props.item.tea*100}}%</td>
+                            <td>${{props.item.valorNeto}}</td>
+                            <td>${{props.item.valorRecibido}}</td>
+                            <td>${{props.item.valorEntregado}}</td>
+                            <td>{{props.item.tcea*100}}%</td>
+                        </template>
+                    </v-data-table>
+            </v-flex>
     </v-flex>
 </v-layout>
 </template>
@@ -320,6 +335,29 @@ export default {
                     sortable: false
                 }
             ],
+            cabeceraResultados: [{
+                    text: 'TEA',
+                    sortable: false
+                },
+                {
+                    text: 'Valor Neto',
+                    sortable: false
+                },
+                {
+                    text: 'Valor Recibido',
+                    sortable: false
+                },
+                {
+                    text: 'Valor Entregado',
+                    sortable: false
+                },
+                {
+                    text: 'TCEA',
+                    sortable: false
+                }
+            ],
+            resultados: [],
+            result: false,
             verNuevo: 1,
             verCostos: 0,
             errorMedicamento: '',
@@ -354,10 +392,21 @@ export default {
 
         listar() {
             let me = this;
-
             axios.get('api/Factura').then(function (response) {
                 //console.log(response);
                 me.ordenes = response.data;
+            }).catch(function (error) {
+                console.log(error);
+            });
+        },
+
+        obtenerResultado(){
+            let me = this;
+            me.resultados = [],
+            axios.get('api/Factura/last').then(function (response) {
+                //console.log(response);
+                //me.resultados = response.data;
+                me.resultados.push(response.data)
             }).catch(function (error) {
                 console.log(error);
             });
@@ -407,6 +456,7 @@ export default {
                     usuarioId: me.usuarioId
                 })
                 .then(function (response) {
+                    me.result = true;
                     me.ocultarNuevo();
                     me.listar();
                     me.limpiar();
@@ -425,7 +475,8 @@ export default {
             this.plazoDeTasa = '',
             this.tasaEfectiva = '',
             this.tasaNominal = '',
-            this.fechaDescuento = ''
+            this.fechaDescuento = '',
+            this.result = false,
             this.auxCostos = [];
             this.costos = [];
         },
