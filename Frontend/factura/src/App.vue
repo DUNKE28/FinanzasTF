@@ -18,7 +18,7 @@
           </v-list-tile>
         </template>
 
-        <template>
+        <template v-if="logeado">
 
           <v-list-group>
             <v-list-tile slot="activator">
@@ -52,6 +52,39 @@
 
           </v-list-group>
 
+        </template>
+
+        <template v-if="!logeado">
+          <v-list-tile :to="{name:'login'}">
+            <v-list-tile-action>
+              <v-icon class="material-design">account_circle</v-icon>
+            </v-list-tile-action>
+            <v-list-tile-title>
+              Iniciar Sesion
+            </v-list-tile-title>
+          </v-list-tile>
+        </template>
+
+        <template v-if="!logeado">
+          <v-list-tile :to="{name:'singin'}">
+            <v-list-tile-action>
+              <v-icon class="material-design">open_in_new</v-icon>
+            </v-list-tile-action>
+            <v-list-tile-title>
+              Registrarse
+            </v-list-tile-title>
+          </v-list-tile>
+        </template>
+
+        <template v-if="logeado">
+          <v-list-tile @click="close()">
+            <v-list-tile-action>
+              <v-icon class="material-design">cancel</v-icon>
+            </v-list-tile-action>
+            <v-list-tile-title>
+              Cerrar sesion
+            </v-list-tile-title>
+          </v-list-tile>
         </template>
         
        
@@ -104,7 +137,17 @@ export default {
   data () {
     return {
       drawer: true,
+      logeado: localStorage.getItem('logeado')
      }
+  },
+  methods: {
+    close() {
+        localStorage.removeItem('email')
+        localStorage.removeItem('contraseña')
+        localStorage.removeItem('logeado')
+        window.parent.location.reload()
+        window.top.location.href = "/"
+    }
   }
 }
 </script>

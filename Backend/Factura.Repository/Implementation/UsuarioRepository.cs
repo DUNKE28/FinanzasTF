@@ -38,7 +38,6 @@ namespace Factura.Repository.Implementation
             try
             {
                 result = context.Usuarios
-                .Include(usuario => usuario.Facturas)
                 .ToList();
             }
             catch (Exception)
@@ -54,7 +53,6 @@ namespace Factura.Repository.Implementation
             try
             {
                 result = context.Usuarios
-                    .Include(usuario => usuario.Facturas)
                     .Single(x => x.Id == id);
             }
             catch (Exception)
@@ -70,7 +68,6 @@ namespace Factura.Repository.Implementation
             try
             {
                 result = context.Usuarios
-                    .Include(usuario => usuario.Facturas)
                     .Single(x => x.RUC==RUC);
             }
             catch (System.Exception)
@@ -89,7 +86,6 @@ namespace Factura.Repository.Implementation
             try
             {
                 result = context.Usuarios
-                    .Include(usuario => usuario.Facturas)
                     .Single(x => x.Email==email && x.Contraseña==contraseña);
             }
             catch (System.Exception)

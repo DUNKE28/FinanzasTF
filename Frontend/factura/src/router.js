@@ -5,6 +5,7 @@ import Paciente from './components/Paciente.vue'
 import Orden from './components/Orden.vue'
 import Factura from './components/Factura.vue'
 import Cartera from './components/Cartera.vue'
+import Login from './components/Login.vue'
 
 Vue.use(Router)
 
@@ -31,6 +32,11 @@ export default new Router({
       path: '/facturas',
       name: 'facturas',
       component: Factura
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: Login
     },
     {
       path: '/carteras',
