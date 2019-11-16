@@ -191,5 +191,19 @@ namespace Factura.Repository.Implementation
             }
             return ilast;
         }
+
+        public IEnumerable<Factu> GetByIdUsuario(int idUser)
+        {
+            var result = new List<Factu>();
+            try
+            {
+                result = context.Facturas.Where(x => x.UsuarioId == idUser).ToList();
+            }
+            catch(Exception)
+            {
+                throw;
+            }
+            return result;
+        }
     }
 }

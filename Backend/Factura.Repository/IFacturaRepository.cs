@@ -6,5 +6,6 @@ namespace Factura.Repository
     public interface IFacturaRepository:IRepository<Factu>
     {
         Factu GetLastResult();
+        IEnumerable<Factu> GetByIdUsuario(int idUser);
     }
 }

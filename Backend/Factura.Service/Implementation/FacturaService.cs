@@ -30,6 +30,11 @@ namespace Factura.Service.Implementation
             return facturaRepository.GetById(id);
         }
 
+        public IEnumerable<Factu> GetByIdUsuario(int idUser)
+        {
+            return facturaRepository.GetByIdUsuario(idUser);
+        }
+
         public Factu GetLastResult()
         {
             return facturaRepository.GetLastResult();

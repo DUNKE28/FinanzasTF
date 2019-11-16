@@ -61,5 +61,13 @@ namespace Factura.Api.Controllers
                 facturaService.DeleteById(id)
             );
         }
+
+        [HttpGet("user/{idUser}")]
+        public ActionResult GetByIdUsuario(int idUser)
+        {
+            return Ok(
+                facturaService.GetByIdUsuario(idUser)
+            );
+        }
     }
 }
