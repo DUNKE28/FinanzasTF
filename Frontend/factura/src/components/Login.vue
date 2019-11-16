@@ -75,16 +75,17 @@ export default {
         let me = this;
         axios.get('api/Usuario/'+me.email+'/'+me.contraseña)
         .then(function (response) {
+            console.log(response.data)
             if (response.data) {
                 localStorage.setItem('email',me.email)
                 localStorage.setItem('contraseña',me.contraseña)
                 localStorage.setItem('logeado',true)
+                localStorage.setItem('id',response.data.id)
                 window.top.location.href = "/facturas"
             }
         }).catch(function (error) {
             console.log(error);
         });
-        window.parent.location.reload()
     }
   }
 }
