@@ -66,7 +66,7 @@
         </template>
 
         <template v-if="!logeado">
-          <v-list-tile :to="{name:'singin'}">
+          <v-list-tile :to="{name:'registro'}">
             <v-list-tile-action>
               <v-icon class="material-design">open_in_new</v-icon>
             </v-list-tile-action>
@@ -145,6 +145,7 @@ export default {
         localStorage.removeItem('email')
         localStorage.removeItem('contraseña')
         localStorage.removeItem('logeado')
+        localStorage.removeItem('id')
         window.parent.location.reload()
         window.top.location.href = "/"
     }
