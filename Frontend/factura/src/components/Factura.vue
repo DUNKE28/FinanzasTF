@@ -174,7 +174,7 @@
 
                 <v-flex xs12 sm12 md12 lg12 xl12>
                     <v-btn @click="limpiar()" color="blue darken-1" flat>Limpiar</v-btn>
-                    <v-btn @click="guardar(),obtenerResultado()" color="success">Calcular Factura</v-btn>
+                    <v-btn @click="guardar()" color="success">Calcular Factura</v-btn>
                 </v-flex>
             </v-layout>
         </v-container>
@@ -265,7 +265,7 @@ export default {
             fechaDescuento: '',
             costos: [],
             auxCostos: [],
-            usuarioId: 1,
+            usuarioId: localStorage.getItem('id'),
             facturaId: 1,
             motivo: '',
             valor: '',
@@ -373,8 +373,6 @@ export default {
 
     created() {
         this.listar();
-        this.listarPacientes();
-        this.listarMedicamento();
     },
 
     methods: {
@@ -438,7 +436,6 @@ export default {
         guardar() {
             let me = this;
             me.costos = me.auxCostos;
-            console.log(me.fechaEmision);
             axios
                 .post("api/Factura", {
                     fechaConsulta: new Date(),
@@ -457,13 +454,11 @@ export default {
                 })
                 .then(function (response) {
                     me.result = true;
-                    me.ocultarNuevo();
+                    me.obtenerResultado()
                     me.listar();
-                    me.limpiar();
                 })
                 .catch(function (error) {
                     console.log(error);
-                    console.log(me.detalles)
                 });
         },
 

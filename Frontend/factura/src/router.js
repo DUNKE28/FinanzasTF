@@ -6,6 +6,7 @@ import Orden from './components/Orden.vue'
 import Factura from './components/Factura.vue'
 import Cartera from './components/Cartera.vue'
 import Login from './components/Login.vue'
+import Registro from './components/Registro.vue'
 
 Vue.use(Router)
 
@@ -37,6 +38,11 @@ export default new Router({
       path: '/login',
       name: 'login',
       component: Login
+    },
+    {
+      path: '/registro',
+      name: 'registro',
+      component: Registro
     },
     {
       path: '/carteras',
