@@ -18,18 +18,8 @@
           </v-list-tile>
         </template>
 
-        <template v-if="logeado">
-
-          <v-list-group>
-            <v-list-tile slot="activator">
-              <v-list-tile-content>
-                <v-list-tile-title>
-                  Facturas
-                </v-list-tile-title>
-              </v-list-tile-content>
-            </v-list-tile>
            
-            <v-list-tile :to="{ name: 'facturas'}">
+            <v-list-tile :to="{ name: 'facturas'}" v-if="logeado">
               <v-list-tile-action>
                 <v-icon>insert_drive_file</v-icon>
               </v-list-tile-action>
@@ -39,7 +29,7 @@
                 </v-list-tile-title>
               </v-list-tile-content>
             </v-list-tile>
-            <v-list-tile :to="{ name: 'carteras'}">
+            <v-list-tile :to="{ name: 'carteras'}" v-if="logeado">
               <v-list-tile-action>
                 <v-icon>file_copy</v-icon>
               </v-list-tile-action>
@@ -49,10 +39,6 @@
                 </v-list-tile-title>
               </v-list-tile-content>
             </v-list-tile>
-
-          </v-list-group>
-
-        </template>
 
         <template v-if="!logeado">
           <v-list-tile :to="{name:'login'}">

@@ -1,12 +1,12 @@
 <template>
-<v-layout align-start>
+<v-layout align-center>
     <v-flex>
         <v-toolbar flat color="white">
             <v-toolbar-title>Registro</v-toolbar-title>
             <v-divider class="mx-2" inset vertical></v-divider>
             <v-spacer></v-spacer>        
         </v-toolbar>
-        <v-container grid-list-sm class="pa-4 white">
+        <v-container align="center" grid-list-sm class="pa-4 white">
             <h3>Ingrese los siguiente campos:</h3>
             <v-layout row wrap>
                 <v-flex xs12 sm4 md4 lg4 xl4>
@@ -31,11 +31,12 @@
                 </v-text-field>
             </v-flex>
         </v-container>
-
-        <v-flex xs12 sm12 md12 lg12 xl12>
-            <v-btn @click="limpiar()" color="blue darken-1" flat>Limpiar</v-btn>
-            <v-btn @click="guardarVeri()" color="success">Registrarse</v-btn>
-        </v-flex>
+        <v-container grid-list-sm class="pa-4 white">
+            <v-flex xs12 sm12 md12 lg12 xl12>
+                <v-btn @click="limpiar()" color="blue darken-1" flat>Limpiar</v-btn>
+                <v-btn @click="guardarVeri()" color="success">Registrarse</v-btn>
+            </v-flex>
+        </v-container>
     </v-flex>
 </v-layout>
 </template>

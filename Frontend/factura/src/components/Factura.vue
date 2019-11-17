@@ -7,7 +7,7 @@
             <v-spacer></v-spacer>
 
             
-            <v-dialog v-model="verCostos" max-width="1000px">
+            <v-dialog persistent v-model="verCostos" max-width="1000px">
                 <v-card>
                     <v-card-title>
                         <span class="headline">Agregar costo</span>
@@ -140,7 +140,7 @@
             <h3>Costos/Gastos</h3>
             <v-layout row wrap>
                 <v-flex xs12 sm2 md2 lg2 xl2>
-                    <v-btn class="mx-2" @click="mostrarMedicamentos()" small fab dark color="teal">
+                    <v-btn class="mx-2" @click="mostrarMedicamentos()" small fab dark color="primary">
                         <v-icon dark>add</v-icon>
                     </v-btn>
                 </v-flex>
@@ -430,6 +430,8 @@ export default {
             if (this.motivo != '' && this.valor != ''){
                 this.agregarCosto()
                 this.limpiarCosto()
+            } else {
+                alert('FALLO: campos de costo faltantes.')
             }
         },
 
@@ -473,8 +475,11 @@ export default {
             if (this.fechaEmision != '' && this.fechaPago != '' && this.totalFacturado != '' && this.diasPorAño != '' && this.plazoDeTasa != ''
                 && (this.tasaEfectiva != '' ||  (this.tasaNominal != '' && this.periodoCapital != '')) &&  this.fechaDescuento != ''
                 && ((this.fechaEmision < this.fechaPago) && (this.fechaPago > this.fechaEmision) && (this.fechaDescuento < this.fechaPago)
-                && (this.fechaDescuento > this.fechaEmision))){
+                && (this.fechaDescuento > this.fechaEmision)) && this.totalFacturado > 0 && (this.tasaEfectiva > 0 || this.tasaNominal > 0) 
+                && this.plazoDeTasa > 0){
                 this.guardar()
+            } else {
+                alert('FALLO: Verifique la entrada de datos')
             }
         },
 
