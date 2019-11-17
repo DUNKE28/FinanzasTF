@@ -31,7 +31,7 @@
            
             <v-list-tile :to="{ name: 'facturas'}">
               <v-list-tile-action>
-                <v-icon>table_chart</v-icon>
+                <v-icon>insert_drive_file</v-icon>
               </v-list-tile-action>
               <v-list-tile-content>
                 <v-list-tile-title>
@@ -41,7 +41,7 @@
             </v-list-tile>
             <v-list-tile :to="{ name: 'carteras'}">
               <v-list-tile-action>
-                <v-icon>table_chart</v-icon>
+                <v-icon>file_copy</v-icon>
               </v-list-tile-action>
               <v-list-tile-content>
                 <v-list-tile-title>
