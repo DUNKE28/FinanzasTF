@@ -76,7 +76,9 @@ export default {
                     contraseña: me.contraseña,
                 })
                 .then(function (response) {
-                    window.top.location.href = "/login"
+                    if(response.data){
+                        window.top.location.href = "/login"
+                    }                
                 })
                 .catch(function (error) {
                     console.log(error);
