@@ -16,7 +16,7 @@
                         <v-container grid-list-md>
                             <v-layout wrap>
                                 <v-flex xs12 sm4 md4 lg4 xl4>
-                                    <v-select v-model="motivo" :items="motivos" label="Motivo">
+                                    <v-select :rules="[ v => !!v || 'Motivo es requerido']" v-model="motivo" :items="motivos" label="Motivo">
                                     </v-select>
                                 </v-flex>
                                 <v-flex xs12 sm4 md4 lg4 xl4>
@@ -28,11 +28,11 @@
                                     </v-select>
                                 </v-flex>
                                 <v-flex xs12 sm4 md4 lg4 xl4 v-if="isEfectivo">
-                                    <v-text-field prefix="$" v-model="valor" label="Valor">
+                                    <v-text-field :rules="[ v => !!v || 'Valor es requerido']" prefix="$" v-model="valor" label="Valor">
                                     </v-text-field>
                                 </v-flex>
                                 <v-flex xs12 sm4 md4 lg4 xl4 v-if="!isEfectivo">
-                                    <v-text-field suffix="%" v-model="valor" label="Valor">
+                                    <v-text-field :rules="[ v => !!v || 'Valor es requerido']" suffix="%" v-model="valor" label="Valor">
                                     </v-text-field>
                                 </v-flex>
                             </v-layout>
@@ -43,7 +43,7 @@
                         <v-btn @click="ocultarMedicamentos()" color="blue darken" flat>
                             Cancelar
                         </v-btn>
-                        <v-btn @click="agregarCosto(),limpiarCosto()" color="success" flat>
+                        <v-btn @click="agregarCostoVeri()" color="success" flat>
                             Agregar
                         </v-btn>
                     </v-card-actions>
@@ -59,7 +59,7 @@
                     <v-menu v-model="modal1" :close-on-content-click="false" :nudge-right="10" lazy transition="scale-transition"
                         offset-y min-width="290px" >
                         <template v-slot:activator="{ on }">
-                            <v-text-field v-model="fechaEmision" label="Fecha de Emision" prepend-icon="event" readonly v-on="on"></v-text-field>
+                            <v-text-field :rules="[ v => !!v || 'Fecha de emisión es requerido']" v-model="fechaEmision" label="Fecha de Emision" prepend-icon="event" readonly v-on="on"></v-text-field>
                         </template>
                         <v-date-picker v-model="fechaEmision" @input="modal1 = false" ></v-date-picker>
                     </v-menu>
@@ -69,14 +69,14 @@
                     <v-menu v-model="modal2" :close-on-content-click="false" :nudge-right="10" lazy transition="scale-transition"
                         offset-y min-width="290px" >
                         <template v-slot:activator="{ on }">
-                            <v-text-field v-model="fechaPago" label="Fecha de Pago" prepend-icon="event" readonly v-on="on"></v-text-field>
+                            <v-text-field :rules="[ v => !!v || 'Fecha de pago es requerido']" v-model="fechaPago" label="Fecha de Pago" prepend-icon="event" readonly v-on="on"></v-text-field>
                         </template>
                         <v-date-picker v-model="fechaPago" @input="modal2 = false" ></v-date-picker>
                     </v-menu>
                 </v-flex>
 
                 <v-flex xs12 sm4 md4 lg4 xl4>
-                    <v-text-field value="10.00" prefix="$" type="number" v-model="totalFacturado" label="Total Facturado">
+                    <v-text-field :rules="[ v => !!v || 'Total facturado es requerido']" value="10.00" prefix="$" type="number" v-model="totalFacturado" label="Total Facturado">
                     </v-text-field>
                 </v-flex>
             </v-layout>
@@ -86,12 +86,12 @@
             <h3>Tasa y Plazo</h3>
             <v-layout row wrap>
                 <v-flex xs12 sm4 md4 lg4 xl4>
-                    <v-select v-model="diasPorAño" :items="diasPorAñoarr" label="Dias por año">
+                    <v-select :rules="[ v => !!v || 'Dias por año es requerido']" v-model="diasPorAño" :items="diasPorAñoarr" label="Dias por año">
                     </v-select>
                 </v-flex>
 
                 <v-flex xs12 sm4 md4 lg4 xl4>
-                    <v-select v-model="plazoDeTasa" :items="plazos" label="Plazo de la Tasa">
+                    <v-select :rules="[ v => !!v || 'Plazo de tasa es requerido']" v-model="plazoDeTasa" :items="plazos" label="Plazo de la Tasa">
                     </v-select>
                 </v-flex>
 
@@ -106,17 +106,17 @@
                 </v-flex>
 
                 <v-flex xs12 sm4 md4 lg4 xl4 v-if="!isNominal">
-                    <v-text-field suffix="%" v-model="tasaEfectiva" label="Tasa Efectiva">
+                    <v-text-field :rules="[ v => !!v || 'Tasa efectiva es requerido']" suffix="%" v-model="tasaEfectiva" label="Tasa Efectiva">
                     </v-text-field>
                 </v-flex>
 
                 <v-flex xs12 sm4 md4 lg4 xl4 v-if="isNominal">
-                    <v-text-field suffix="%" v-model="tasaNominal" label="Tasa Nominal">
+                    <v-text-field :rules="[ v => !!v || 'Tasa nominal es requerido']" suffix="%" v-model="tasaNominal" label="Tasa Nominal">
                     </v-text-field>
                 </v-flex>
 
                 <v-flex xs12 sm4 md4 lg4 xl4 v-if="isNominal">
-                    <v-select v-model="periodoCapital" :items="plazos" label="Periodo de Capitalizacion">
+                    <v-select :rules="[ v => !!v || 'Periodo de capitalización es requerido']" v-model="periodoCapital" :items="plazos" label="Periodo de Capitalizacion">
                     </v-select>
                 </v-flex>
 
@@ -129,7 +129,7 @@
                     <v-menu v-model="modal3" :close-on-content-click="false" :nudge-right="10" lazy transition="scale-transition"
                         offset-y min-width="290px" >
                         <template v-slot:activator="{ on }">
-                            <v-text-field v-model="fechaDescuento " label="Fecha de Descuento" prepend-icon="event" readonly v-on="on"></v-text-field>
+                            <v-text-field :rules="[ v => !!v || 'Fecha de descuento es requerido']" v-model="fechaDescuento " label="Fecha de Descuento" prepend-icon="event" readonly v-on="on"></v-text-field>
                         </template>
                         <v-date-picker v-model="fechaDescuento" @input="modal3 = false" ></v-date-picker>
                     </v-menu>
@@ -174,7 +174,7 @@
 
                 <v-flex xs12 sm12 md12 lg12 xl12>
                     <v-btn @click="limpiar()" color="blue darken-1" flat>Limpiar</v-btn>
-                    <v-btn @click="guardar()" color="success">Calcular Factura</v-btn>
+                    <v-btn @click="guardarVeri()" color="success">Calcular Factura</v-btn>
                 </v-flex>
             </v-layout>
         </v-container>
@@ -426,6 +426,13 @@ export default {
             console.log(this.auxCostos);
         },
 
+        agregarCostoVeri(){
+            if (this.motivo != '' && this.valor != ''){
+                this.agregarCosto()
+                this.limpiarCosto()
+            }
+        },
+
         eliminarCosto(arr, item) {
             var i = arr.indexOf(item);
             if (i !== -1) {
@@ -460,6 +467,15 @@ export default {
                 .catch(function (error) {
                     console.log(error);
                 });
+        },
+
+        guardarVeri(){
+            if (this.fechaEmision != '' && this.fechaPago != '' && this.totalFacturado != '' && this.diasPorAño != '' && this.plazoDeTasa != ''
+                && (this.tasaEfectiva != '' ||  (this.tasaNominal != '' && this.periodoCapital != '')) &&  this.fechaDescuento != ''
+                && ((this.fechaEmision < this.fechaPago) && (this.fechaPago > this.fechaEmision) && (this.fechaDescuento < this.fechaPago)
+                && (this.fechaDescuento > this.fechaEmision))){
+                this.guardar()
+            }
         },
 
         limpiar() {
