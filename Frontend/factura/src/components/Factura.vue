@@ -1,6 +1,6 @@
 <template>
 <v-layout align-start>
-    <v-flex>
+    <v-flex v-if="logeado">
         <v-toolbar flat color="white">
             <v-toolbar-title>Factura</v-toolbar-title>
             <v-divider class="mx-2" inset vertical></v-divider>
@@ -194,8 +194,40 @@
                     </v-data-table>
             </v-flex>
     </v-flex>
+    <v-container v-if="!logeado">
+    <v-layout
+      text-xs-center
+      wrap
+    >
+      <v-flex xs12>
+        <v-img
+          src="https://cdn.pixabay.com/photo/2014/04/02/10/26/attention-303861_960_720.png"
+          class="my-3"
+          contain
+          height="200"
+        ></v-img>
+      </v-flex>
+
+      <v-flex mb-4>
+        <h1 class="display-2 font-weight-bold mb-3">
+          Necesitas iniciar sesión
+        </h1>
+        <p class="subheading font-weight-regular">
+          Para iniciar sesion de click
+          <a href="/login">aquí</a>
+          <br>Para registrarse de click
+          <a href="/registro">aquí</a>
+        </p>
+      </v-flex>
+      
+    </v-layout>
+  </v-container>
 </v-layout>
 </template>
+
+
+
+
 
 <script>
 import axios from 'axios'
@@ -203,6 +235,7 @@ import axios from 'axios'
 export default {
     data() {
         return {
+            logeado: localStorage.getItem('logeado'),
             modal1: false,
             modal2: false,
             modal3: false,

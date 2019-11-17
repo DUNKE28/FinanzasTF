@@ -15,7 +15,7 @@
 
       <v-flex mb-4>
         <h1 class="display-2 font-weight-bold mb-3">
-          Bienvenido a FacturaInc
+          Bienvenido a I-Factoring
         </h1>
         <p class="subheading font-weight-regular">
           Nuestra meta es hacer el calculo de tus descuentos por
